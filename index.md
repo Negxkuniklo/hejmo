@@ -1,4 +1,6 @@
-# うさぎです。
+# のんなのホームページ
+
+Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです。
 
 ## 更新情報
 
@@ -23,7 +25,7 @@
 - ウサ娘プリティーバニー
 - 情報系の大学を卒業しましたが、アスタリスクでピラミッドを作ることしかできません。（敗北）
 - 現在はRustとEsperantoを勉強しています。
-- OSSやLinux、万年筆、うさぎなんかが好きです。
+- OSSやLinux、それから万年筆なんかが好きです。
 - うさぎとアップルミントを育ててます。
 - 月女神教とスヤスヤ教を信仰しています。
 - VRChatやってます。  
@@ -44,16 +46,16 @@
 
 ### SNS
 
-- [Note](https://note.com/negxkuniklo)
 - [Misskey](https://misskey.io/@negxkuniklo)
 - [VRChat](https://vrchat.com/home/user/usr_c65de0b0-7088-4185-80ac-3ca00c47a7e7)
 - [Steam](https://steamcommunity.com/id/negxkuniklo/)
 - [YouTube](https://www.youtube.com/@negxkuniklo)
+- [Note](https://note.com/negxkuniklo)
 
 ### グループ
 
 - [うさ耳集会](https://vrc.group/USAMM.9301)（VRChatグループ）
-- [たれ耳の子保全機構](https://vrc.group/LOPMM.4866)（VRChatグループ）
+- [たれみみのこ保全機構](https://vrc.group/LOPMM.4866)（VRChatグループ）
 - [VRC探偵事務所](https://vrc.group/4869.0956)（VRChatグループ）
 
 ### ほしいものリスト
