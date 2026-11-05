@@ -2,7 +2,9 @@
 
 ## 更新情報
 
+- 20261105: [Marupo](https://github.com/Negxkuniklo/Marupo)を公開しました。
 - 20260814: [EsperantoXKonvertilo](./EsperantoXKonvertilo/index.html)を公開しました。
+- 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table)を公開しました。
 - 20260731: 公式設定を更新しました！
 - 20260501: [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question)を公開しました。
 - 20260426: [タロットカードバトル](./タロットカードバトル)を公開しました。
@@ -22,10 +24,10 @@
 
 - ウサ娘プリティーバニー
 - 情報系の大学を卒業しましたが、アスタリスクでピラミッドを作ることしかできません。（敗北）
-- OSSやLinux、万年筆や懐中時計、シーリングスタンプが好きです。
+- 現在はRustを勉強しています。
+- OSSやLinux、万年筆、うさぎなんかが好きです。
 - うさぎとアップルミントを育ててます。
-- 月女神教（Lundinismo）を信仰しています。
-- 最近名探偵始めました。
+- 月女神教とスヤスヤ教を信仰しています。
 - VRChatやってます。  
     使用アバター: しなの、みみのこ、マリシア  
 - 合気道やってます。  
@@ -40,10 +42,11 @@
 - [Chrome拡張機能](./Chrome拡張機能.html)
 - [タロットカードバトル](./タロットカードバトル)
 - [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question)
-- [EsperantoXKonvertilo](./EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するサービス
+- [EsperantoXKonvertilo](./EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ
 
 ### SNS
 
+- [Note](https://note.com/negxkuniklo)
 - [Misskey](https://misskey.io/@negxkuniklo)
 - [VRChat](https://vrchat.com/home/user/usr_c65de0b0-7088-4185-80ac-3ca00c47a7e7)
 - [Steam](https://steamcommunity.com/id/negxkuniklo/)
@@ -54,8 +57,6 @@
 - [うさ耳集会](https://vrc.group/USAMM.9301)（VRChatグループ）
 - [たれ耳の子保全機構](https://vrc.group/LOPMM.4866)（VRChatグループ）
 - [VRC探偵事務所](https://vrc.group/4869.0956)（VRChatグループ）
-- [特務機関Lagomorpha](https://x.com/LagomorphaSA)（Xアカウント）
-- [Lundinismo](https://matrix.to/#/%23ludinismo:matrix.org)（Matrix）
 
 ### ほしいものリスト
 
