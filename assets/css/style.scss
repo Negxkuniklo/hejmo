@@ -1,39 +1,57 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
 /* =========================================================
-   Snow & Moon Adult-Kawaii Theme for Nonna Neĝkuniklo ❄️🌙
+   Snow & Moon Adult-Kawaii Theme (紫霜 #9389b3)
+   for Nonna Neĝkuniklo ❄️🌙
    ========================================================= */
 
 :root {
-  --bg-snow: #fcfcfe;
-  --bg-frost: #f3f5fb;
-  --bg-blush: #fdf6f9;
-  --card-bg: rgba(255, 255, 255, 0.92);
-  --text-main: #433e49;
-  --text-muted: #7b7385;
-  --accent-rose: #d4879c;
-  --accent-rose-light: #f6e3e9;
-  --accent-moon: #c9a96e;
-  --accent-moon-light: #f5ecd7;
-  --accent-ice: #8fa8c8;
-  --accent-ice-light: #e6eef8;
-  --border-soft: #eae6f0;
-  --shadow-soft: 0 10px 32px rgba(143, 155, 190, 0.12), 0 2px 8px rgba(212, 135, 156, 0.06);
+  color-scheme: light;
+
+  /* テーマカラー：紫霜 (HEX: #9389b3 / RGB: 147, 137, 179 / HSL: 253°, 22%, 62%) */
+  --shisou: #9389b3;
+  --shisou-dark: #736896;
+  --shisou-deeper: #594f7a;
+  --shisou-light: #efedf6;
+  --shisou-pale: #f7f6fb;
+  --shisou-border: #e2deee;
+
+  /* サブアクセント：月光（シャンパンゴールド）＆雪氷 */
+  --accent-moon: #c5a869;
+  --accent-moon-light: #f6eedb;
+
+  /* ベースカラー：白地 ＆ すこーしだけグレーな黒文字 */
+  --bg-white: #ffffff;
+  --bg-page: #fbfafd;
+  --text-main: #2e2d33;
+  --text-heading: #242229;
+  --text-muted: #6c6777;
+
+  --shadow-card: 0 8px 30px rgba(147, 137, 179, 0.12), 0 2px 8px rgba(147, 137, 179, 0.06);
 }
 
-/* Base & Background */
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-white);
+  color: var(--text-main);
+}
+
 body {
   font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 16px;
   color: var(--text-main);
-  background-color: var(--bg-snow);
+  background-color: var(--bg-page);
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(230, 238, 248, 0.7) 0%, transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(253, 238, 244, 0.7) 0%, transparent 45%),
-    radial-gradient(circle at 50% 85%, rgba(245, 236, 215, 0.45) 0%, transparent 50%),
-    linear-gradient(180deg, #f8faff 0%, #fdfafc 50%, #f6f8fd 100%);
+    radial-gradient(circle at 12% 10%, rgba(147, 137, 179, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 88% 20%, rgba(147, 137, 179, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(197, 168, 105, 0.07) 0%, transparent 50%);
   background-attachment: fixed;
   line-height: 1.85;
   letter-spacing: 0.03em;
@@ -48,29 +66,23 @@ body {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 24px;
-  box-sizing: border-box;
 }
 
 /* Header */
 #header_wrap {
-  background: linear-gradient(135deg, #ffffff 0%, #f6f8fe 45%, #fdf5f8 100%);
-  border-bottom: 1px solid var(--border-soft);
-  box-shadow: 0 4px 20px rgba(160, 175, 205, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, var(--shisou-pale) 100%);
+  border-bottom: 2px solid var(--shisou-border);
+  box-shadow: 0 4px 20px rgba(147, 137, 179, 0.08);
   padding: 44px 0 36px;
   text-align: center;
   position: relative;
 }
 
-#header_wrap .inner {
-  padding: 0 24px;
-}
-
 .header-emblem {
   font-size: 15px;
   letter-spacing: 0.5em;
-  color: var(--accent-moon);
+  color: var(--shisou);
   margin-bottom: 10px;
-  opacity: 0.9;
 }
 
 #project_title {
@@ -78,20 +90,20 @@ body {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #3b3542;
-  text-shadow: 0 2px 10px rgba(212, 135, 156, 0.15);
+  color: var(--text-heading);
+  text-shadow: 0 2px 10px rgba(147, 137, 179, 0.18);
   margin: 0 0 8px 0;
 }
 
 #project_title a {
   color: inherit;
   text-decoration: none;
-  background: none;
   border: none;
 }
 
 #project_title a:hover {
-  color: var(--accent-rose);
+  color: var(--shisou-dark);
+  background: none;
 }
 
 #project_tagline {
@@ -99,40 +111,32 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: var(--text-muted);
-  text-shadow: none;
-  background: none;
   margin: 0;
   letter-spacing: 0.08em;
 }
 
-/* Main Content Area (Card Style) */
+/* Main Content Area (White Card) */
 #main_content_wrap {
   background: transparent;
-  border: none;
   padding: 40px 16px 56px;
-  box-sizing: border-box;
 }
 
 #main_content {
-  background: var(--card-bg);
-  backdrop-filter: blur(8px);
-  border: 1px solid #ffffff;
-  outline: 1px solid var(--border-soft);
+  background-color: var(--bg-white);
+  border: 1px solid var(--shisou-border);
   border-radius: 24px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   padding: 48px 52px;
-  box-sizing: border-box;
 }
 
 /* Typography & Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Zen Maru Gothic", sans-serif;
-  color: #3b3542;
+  color: var(--text-heading);
   font-weight: 700;
   margin-top: 1.8em;
   margin-bottom: 0.8em;
   line-height: 1.45;
-  background: none;
 }
 
 #main_content > h1:first-child,
@@ -144,9 +148,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 26px;
   text-align: center;
-  padding-bottom: 16px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 18px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid var(--shisou-border);
   position: relative;
 }
 
@@ -156,7 +160,7 @@ h1::after {
   bottom: -13px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ffffff;
+  background: var(--bg-white);
   padding: 0 12px;
   font-size: 14px;
   color: var(--accent-moon);
@@ -164,10 +168,9 @@ h1::after {
 
 h2 {
   font-size: 20px;
-  padding: 8px 16px;
-  background: linear-gradient(90deg, var(--accent-rose-light) 0%, rgba(243, 245, 251, 0.5) 70%, transparent 100%);
-  border-left: 4px solid var(--accent-rose);
-  border-bottom: none;
+  padding: 9px 16px;
+  background: linear-gradient(90deg, var(--shisou-light) 0%, var(--shisou-pale) 65%, transparent 100%);
+  border-left: 4px solid var(--shisou);
   border-radius: 0 12px 12px 0;
   display: flex;
   align-items: center;
@@ -182,9 +185,9 @@ h2::before {
 
 h3 {
   font-size: 17px;
-  color: #544b5e;
+  color: var(--text-heading);
   padding-bottom: 6px;
-  border-bottom: 1px dashed #dfd8e8;
+  border-bottom: 1px dashed var(--shisou);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -192,8 +195,12 @@ h3 {
 
 h3::before {
   content: "☾";
-  color: var(--accent-moon);
+  color: var(--shisou);
   font-size: 16px;
+}
+
+h4, h5, h6 {
+  color: var(--shisou-deeper);
 }
 
 p {
@@ -203,22 +210,22 @@ p {
 
 /* Links */
 a {
-  color: #b86b82;
+  color: var(--shisou-dark);
   text-decoration: none;
-  border-bottom: 1px solid rgba(212, 135, 156, 0.35);
+  border-bottom: 1px solid rgba(147, 137, 179, 0.45);
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 a:hover, a:focus {
-  color: #964c62;
-  text-decoration: none;
-  border-bottom-color: var(--accent-rose);
-  background-color: rgba(246, 227, 233, 0.35);
+  color: var(--shisou-deeper);
+  border-bottom-color: var(--shisou);
+  background-color: var(--shisou-light);
   border-radius: 4px;
 }
 
 /* Lists */
 ul, ol {
+  margin-top: 0;
   margin-bottom: 1.4em;
   padding-left: 1.5em;
 }
@@ -232,7 +239,6 @@ ul li {
   position: relative;
   padding-left: 1.2em;
   margin-bottom: 0.45em;
-  background: none;
 }
 
 ul li::before {
@@ -240,7 +246,7 @@ ul li::before {
   position: absolute;
   left: 0;
   top: 0.05em;
-  color: var(--accent-moon);
+  color: var(--shisou);
   font-size: 0.85em;
 }
 
@@ -251,7 +257,7 @@ ul ul {
 
 ul ul li::before {
   content: "・";
-  color: var(--accent-rose);
+  color: var(--shisou);
 }
 
 ol li {
@@ -260,28 +266,29 @@ ol li {
 }
 
 ol li::marker {
-  color: var(--accent-rose);
+  color: var(--shisou-dark);
   font-weight: 700;
 }
 
 /* Strong & Emphasis */
 strong {
-  color: #352f3b;
-  background: linear-gradient(transparent 65%, var(--accent-moon-light) 65%);
+  color: var(--text-heading);
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, var(--shisou-light) 62%);
   padding: 0 2px;
 }
 
 em {
-  color: #6c5b7b;
+  color: var(--shisou-deeper);
   font-style: normal;
-  border-bottom: 1px dotted var(--accent-moon);
+  border-bottom: 1px dotted var(--shisou);
 }
 
 /* Horizontal Rule */
 hr {
   height: 1px;
   border: none;
-  background: linear-gradient(90deg, transparent, #dcd4e6, transparent);
+  background: linear-gradient(90deg, transparent, var(--shisou), transparent);
   margin: 40px 0;
   position: relative;
   overflow: visible;
@@ -293,33 +300,32 @@ hr::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #ffffff;
+  background: var(--bg-white);
   padding: 0 14px;
   font-size: 12px;
   letter-spacing: 0.3em;
-  color: var(--accent-moon);
+  color: var(--shisou);
 }
 
 /* Code & Pre */
 code, pre {
   font-family: "Consolas", "Monaco", monospace;
-  background-color: var(--bg-frost);
-  color: #5c4d6d;
+  background-color: var(--shisou-pale);
+  color: var(--shisou-deeper);
   border-radius: 6px;
 }
 
 code {
   padding: 2px 6px;
   font-size: 0.9em;
-  border: 1px solid #e3e7f3;
-  box-shadow: none;
+  border: 1px solid var(--shisou-border);
 }
 
 pre {
   padding: 16px 20px;
-  border: 1px solid var(--border-soft);
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--shisou-border);
   overflow-x: auto;
+  margin: 1.2em 0;
 }
 
 pre code {
@@ -328,25 +334,25 @@ pre code {
   background: transparent;
 }
 
-/* Tables (e.g. Tarot Card Battle) */
+/* Tables */
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   margin: 24px 0;
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--shisou-border);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(143, 155, 190, 0.06);
+  box-shadow: 0 4px 14px rgba(147, 137, 179, 0.08);
 }
 
 th {
-  background: linear-gradient(135deg, var(--accent-rose-light) 0%, var(--accent-ice-light) 100%);
-  color: #4a3f55;
+  background: linear-gradient(135deg, var(--shisou-light) 0%, var(--shisou-pale) 100%);
+  color: var(--text-heading);
   font-weight: 700;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-soft);
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid var(--shisou);
+  border-right: 1px solid var(--shisou-border);
   text-align: left;
 }
 
@@ -356,9 +362,9 @@ th:last-child {
 
 td {
   padding: 11px 16px;
-  border-bottom: 1px solid #f1eef6;
-  border-right: 1px solid #f5f2f9;
-  background-color: #ffffff;
+  border-bottom: 1px solid var(--shisou-border);
+  border-right: 1px solid var(--shisou-pale);
+  background-color: var(--bg-white);
   color: var(--text-main);
 }
 
@@ -367,7 +373,7 @@ td:last-child {
 }
 
 tr:nth-child(even) td {
-  background-color: #faf9fd;
+  background-color: var(--shisou-pale);
 }
 
 tr:last-child td {
@@ -377,8 +383,8 @@ tr:last-child td {
 /* Blockquote */
 blockquote {
   color: var(--text-muted);
-  background: var(--bg-blush);
-  border-left: 4px solid var(--accent-moon);
+  background: var(--shisou-pale);
+  border-left: 4px solid var(--shisou);
   margin: 20px 0;
   padding: 14px 20px;
   border-radius: 0 12px 12px 0;
@@ -389,14 +395,14 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--shisou-border);
+  box-shadow: 0 4px 16px rgba(147, 137, 179, 0.1);
 }
 
 /* Footer */
 #footer_wrap {
   background: transparent;
-  border-top: 1px solid var(--border-soft);
+  border-top: 1px solid var(--shisou-border);
   padding: 28px 0 40px;
   text-align: center;
 }
@@ -404,7 +410,7 @@ img {
 .footer-motif {
   font-size: 13px;
   letter-spacing: 0.3em;
-  color: var(--accent-moon);
+  color: var(--shisou);
   margin-bottom: 8px;
 }
 
@@ -415,12 +421,12 @@ img {
 }
 
 #footer_wrap a {
-  color: var(--text-muted);
+  color: var(--shisou-dark);
   border-bottom: none;
 }
 
 #footer_wrap a:hover {
-  color: var(--accent-rose);
+  color: var(--shisou-deeper);
 }
 
 /* Responsive adjustments for mobile */
