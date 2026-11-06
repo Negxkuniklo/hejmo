@@ -1,5 +1,3 @@
-Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のHejmpaĵoです。
-
 ## 更新情報
 
 - 20261106: Kernelに[日記を書くこと](Kernel/22_日記を書くこと.html)、[名探偵のジレンマ](Kernel/23_名探偵のジレンマ.html)を公開しました。
