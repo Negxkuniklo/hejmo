@@ -7,7 +7,7 @@ Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです�
 - 20261106: [Kernel](KernelIndex.html)を更新しました。
 - 20261105: [Marupo](https://github.com/Negxkuniklo/Marupo)を公開しました。
 - 20260814: [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html)を公開しました。
-- 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table.html)を公開しました。
+- 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table)を公開しました。
 - 20260731: 公式設定を更新しました！
 - 20260501: [探偵昇格試験「消えた懐中時計の謎」](探偵昇格試験「消えた懐中時計の謎」/question.html)を公開しました。
 - 20260426: [タロットカードバトル](タロットカードバトル.html)を公開しました。
