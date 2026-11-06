@@ -4,7 +4,7 @@ Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです�
 
 ## 更新情報
 
-- 20261106: [Kernel](KernelIndex.html)を更新しました。
+- 20261106: Kernelに[日記を書くこと](Kernel/22_日記を書くこと.html)、[名探偵のジレンマ](Kernel/23_名探偵のジレンマ.html)を公開しました。
 - 20261105: [Marupo](https://github.com/Negxkuniklo/Marupo)を公開しました。
 - 20260814: [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html)を公開しました。
 - 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table)を公開しました。
