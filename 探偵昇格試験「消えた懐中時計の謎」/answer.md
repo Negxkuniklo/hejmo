@@ -67,4 +67,4 @@
 
 ---
 
-[問題ページ](./question)
+[問題ページ](question.html)

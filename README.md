@@ -1,6 +1,4 @@
-# のんなのホームページ
-
-Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです。
+Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のHejmpaĵoです。
 
 ## 更新情報
 
