@@ -14,19 +14,27 @@
 
 ## 公式設定
 
-雪うさぎ（北海道産天然雪100％使用）。
+雪うさぎ（北海道産天然雪100％使用）
 
 
 ## 自己紹介
 
-- ウサ娘プリティーバニー
-- 情報系の大学を卒業しましたが、アスタリスクでピラミッドを作ることしかできません。（敗北）
-- 現在はRustとEsperantoを勉強しています。
-- OSSやLinux、それから万年筆なんかが好きです。
-- うさぎとアップルミントを育ててます。
-- 月女神教とスヤスヤ教を信仰しています。
+ウサ娘プリティーバニー  
+情報系の大学を卒業しましたが、アスタリスクでピラミッドを作ることしかできません。（敗北+1）  
+OSSやLinux、それから万年筆なんかが好きです。  
+うさぎとアップルミントを育ててます。  
+
+- 言語
+  - Esperanto
+  - Rust
+  - Markdown
+- 宗教
+  - 月女神教
+  - スヤスヤ教
+- 政党
+  - 紅茶党
 - VRChatやってます。  
-    使用アバター: しなの、みみのこ、マリシア  
+    使用アバター: みみのこ、マリシア  
 - 合気道やってます。  
     合気会: 二級  
 
@@ -34,12 +42,13 @@
 
 ### 成果物
 
-- [Kernel（人生哲学）](KernelIndex.html)
-- [GitHub（リポジトリ）](https://github.com/Negxkuniklo?tab=repositories)
-- [Chrome拡張機能](Chrome拡張機能.html)
-- [タロットカードバトル](タロットカードバトル.html)
-- [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question.html)
-- [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ
+- [Kernel](KernelIndex.html): 人生哲学
+- [GitHub](https://github.com/Negxkuniklo?tab=repositories): リポジトリ
+- [Chrome拡張機能](Chrome拡張機能.html): ChromeWebストアに公開している拡張機能
+- [タロットカードバトル](タロットカードバトル.html): タロットカードを使ったTCG。
+- [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question.html): 推理ゲーム
+- [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ。
+- [Terumo](Terumo.html): 日常に、飾らないお茶時間を。
 
 ### SNS
 
