@@ -4,14 +4,15 @@ Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです�
 
 ## 更新情報
 
+- 20261106: [Kernel](KernelIndex.html)を更新しました。
 - 20261105: [Marupo](https://github.com/Negxkuniklo/Marupo)を公開しました。
-- 20260814: [EsperantoXKonvertilo](./EsperantoXKonvertilo/index.html)を公開しました。
-- 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table)を公開しました。
+- 20260814: [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html)を公開しました。
+- 20260807: [エスペラント風に日本語入力ができるGoogle日本語入力・Mozcのローマ字テーブル](https://github.com/Negxkuniklo/eo_japana_table.html)を公開しました。
 - 20260731: 公式設定を更新しました！
-- 20260501: [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question)を公開しました。
-- 20260426: [タロットカードバトル](./タロットカードバトル)を公開しました。
-- 20260424: Kernelに[019死後の楽しみ](./Kernel/019死後の楽しみ)、[020探偵の思考法](./Kernel/020探偵の思考法)、[021短く区切る](./Kernel/021短く区切る)を公開しました。
-- 20260417: [Chrome拡張機能](./Chrome拡張機能.html)を公開しました。
+- 20260501: [探偵昇格試験「消えた懐中時計の謎」](探偵昇格試験「消えた懐中時計の謎」/question.html)を公開しました。
+- 20260426: [タロットカードバトル](タロットカードバトル.html)を公開しました。
+- 20260424: Kernelに[死後の楽しみ](Kernel/19_死後の楽しみ.html)、[探偵の思考法](Kernel/20_探偵の思考法.html)、[短く区切る](Kernel/21_短く区切る.html)を公開しました。
+- 20260417: [Chrome拡張機能](Chrome拡張機能.html)を公開しました。
 - 20260310: 公式設定を変更しました。
 - 20251203: サイトを開設しました！
 
@@ -37,12 +38,12 @@ Nonna Neĝkuniklo(のんな・ねぢくにーくろ)のホームページです�
 
 ### 成果物
 
-- [Kernel（人生哲学）](./KernelIndex)
+- [Kernel（人生哲学）](KernelIndex.html)
 - [GitHub（リポジトリ）](https://github.com/Negxkuniklo?tab=repositories)
-- [Chrome拡張機能](./Chrome拡張機能.html)
-- [タロットカードバトル](./タロットカードバトル)
-- [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question)
-- [EsperantoXKonvertilo](./EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ
+- [Chrome拡張機能](Chrome拡張機能.html)
+- [タロットカードバトル](タロットカードバトル.html)
+- [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question.html)
+- [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ
 
 ### SNS
 
