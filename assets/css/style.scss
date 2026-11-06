@@ -13,22 +13,21 @@
   --shisou: #9389b3;
   --shisou-dark: #736896;
   --shisou-deeper: #594f7a;
-  --shisou-light: #efedf6;
-  --shisou-pale: #f7f6fb;
-  --shisou-border: #e2deee;
+  --shisou-light: #eae6f3;
+  --shisou-pale: #f5f3fa;
+  --shisou-border: #dcd7ec;
 
-  /* サブアクセント：月光（シャンパンゴールド）＆雪氷 */
+  /* サブアクセント：月光（シャンパンゴールド） */
   --accent-moon: #c5a869;
-  --accent-moon-light: #f6eedb;
 
   /* ベースカラー：白地 ＆ すこーしだけグレーな黒文字 */
   --bg-white: #ffffff;
-  --bg-page: #fbfafd;
+  --bg-page: #faf9fd;
   --text-main: #2e2d33;
   --text-heading: #242229;
   --text-muted: #6c6777;
 
-  --shadow-card: 0 8px 30px rgba(147, 137, 179, 0.12), 0 2px 8px rgba(147, 137, 179, 0.06);
+  --shadow-card: 0 10px 32px rgba(147, 137, 179, 0.16), 0 2px 8px rgba(147, 137, 179, 0.08);
 }
 
 /* Reset */
@@ -49,9 +48,9 @@ body {
   color: var(--text-main);
   background-color: var(--bg-page);
   background-image:
-    radial-gradient(circle at 12% 10%, rgba(147, 137, 179, 0.10) 0%, transparent 45%),
-    radial-gradient(circle at 88% 20%, rgba(147, 137, 179, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(197, 168, 105, 0.07) 0%, transparent 50%);
+    radial-gradient(circle at 12% 10%, rgba(147, 137, 179, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 88% 20%, rgba(147, 137, 179, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(197, 168, 105, 0.08) 0%, transparent 50%);
   background-attachment: fixed;
   line-height: 1.85;
   letter-spacing: 0.03em;
@@ -70,10 +69,11 @@ body {
 
 /* Header */
 #header_wrap {
-  background: linear-gradient(180deg, #ffffff 0%, var(--shisou-pale) 100%);
-  border-bottom: 2px solid var(--shisou-border);
-  box-shadow: 0 4px 20px rgba(147, 137, 179, 0.08);
-  padding: 44px 0 36px;
+  background: linear-gradient(180deg, var(--shisou-light) 0%, #ffffff 100%);
+  border-top: 5px solid var(--shisou);
+  border-bottom: 1px solid var(--shisou-border);
+  box-shadow: 0 4px 20px rgba(147, 137, 179, 0.10);
+  padding: 40px 0 34px;
   text-align: center;
   position: relative;
 }
@@ -87,12 +87,18 @@ body {
 
 #project_title {
   font-family: "Cormorant Garamond", "Zen Maru Gothic", serif;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--text-heading);
-  text-shadow: 0 2px 10px rgba(147, 137, 179, 0.18);
-  margin: 0 0 8px 0;
+  text-shadow: 0 2px 12px rgba(147, 137, 179, 0.25);
+  margin: 0 0 10px 0;
+  padding: 0;
+  border: none;
+}
+
+#project_title::after {
+  display: none;
 }
 
 #project_title a {
@@ -109,10 +115,18 @@ body {
 #project_tagline {
   font-family: "Zen Maru Gothic", sans-serif;
   font-size: 14px;
-  font-weight: 400;
-  color: var(--text-muted);
+  font-weight: 500;
+  color: var(--shisou-deeper);
+  background: none;
+  border: none;
+  padding: 0;
   margin: 0;
   letter-spacing: 0.08em;
+  display: block;
+}
+
+#project_tagline::before {
+  display: none;
 }
 
 /* Main Content Area (White Card) */
@@ -124,13 +138,19 @@ body {
 #main_content {
   background-color: var(--bg-white);
   border: 1px solid var(--shisou-border);
-  border-radius: 24px;
+  border-top: 4px solid var(--shisou);
+  border-radius: 20px;
   box-shadow: var(--shadow-card);
   padding: 48px 52px;
 }
 
-/* Typography & Headings */
-h1, h2, h3, h4, h5, h6 {
+/* Typography & Headings inside Main Content */
+#main_content h1,
+#main_content h2,
+#main_content h3,
+#main_content h4,
+#main_content h5,
+#main_content h6 {
   font-family: "Zen Maru Gothic", sans-serif;
   color: var(--text-heading);
   font-weight: 700;
@@ -145,16 +165,16 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-h1 {
+#main_content h1 {
   font-size: 26px;
   text-align: center;
   padding-bottom: 18px;
   margin-bottom: 34px;
-  border-bottom: 1px solid var(--shisou-border);
+  border-bottom: 2px solid var(--shisou-light);
   position: relative;
 }
 
-h1::after {
+#main_content h1::after {
   content: "🌙";
   position: absolute;
   bottom: -13px;
@@ -166,24 +186,24 @@ h1::after {
   color: var(--accent-moon);
 }
 
-h2 {
+#main_content h2 {
   font-size: 20px;
-  padding: 9px 16px;
-  background: linear-gradient(90deg, var(--shisou-light) 0%, var(--shisou-pale) 65%, transparent 100%);
-  border-left: 4px solid var(--shisou);
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--shisou-light) 0%, var(--shisou-pale) 70%, transparent 100%);
+  border-left: 5px solid var(--shisou);
   border-radius: 0 12px 12px 0;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-h2::before {
+#main_content h2::before {
   content: "❄️";
   font-size: 15px;
   line-height: 1;
 }
 
-h3 {
+#main_content h3 {
   font-size: 17px;
   color: var(--text-heading);
   padding-bottom: 6px;
@@ -193,13 +213,15 @@ h3 {
   gap: 6px;
 }
 
-h3::before {
+#main_content h3::before {
   content: "☾";
   color: var(--shisou);
   font-size: 16px;
 }
 
-h4, h5, h6 {
+#main_content h4,
+#main_content h5,
+#main_content h6 {
   color: var(--shisou-deeper);
 }
 
@@ -212,13 +234,13 @@ p {
 a {
   color: var(--shisou-dark);
   text-decoration: none;
-  border-bottom: 1px solid rgba(147, 137, 179, 0.45);
+  border-bottom: 1px solid var(--shisou);
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 a:hover, a:focus {
   color: var(--shisou-deeper);
-  border-bottom-color: var(--shisou);
+  border-bottom-color: var(--shisou-deeper);
   background-color: var(--shisou-light);
   border-radius: 4px;
 }
@@ -266,7 +288,7 @@ ol li {
 }
 
 ol li::marker {
-  color: var(--shisou-dark);
+  color: var(--shisou);
   font-weight: 700;
 }
 
@@ -448,11 +470,11 @@ img {
     border-radius: 18px;
   }
 
-  h1 {
+  #main_content h1 {
     font-size: 22px;
   }
 
-  h2 {
+  #main_content h2 {
     font-size: 18px;
   }
 
