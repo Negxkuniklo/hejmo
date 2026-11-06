@@ -1,0 +1,457 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* =========================================================
+   Snow & Moon Adult-Kawaii Theme for Nonna Neĝkuniklo ❄️🌙
+   ========================================================= */
+
+:root {
+  --bg-snow: #fcfcfe;
+  --bg-frost: #f3f5fb;
+  --bg-blush: #fdf6f9;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-main: #433e49;
+  --text-muted: #7b7385;
+  --accent-rose: #d4879c;
+  --accent-rose-light: #f6e3e9;
+  --accent-moon: #c9a96e;
+  --accent-moon-light: #f5ecd7;
+  --accent-ice: #8fa8c8;
+  --accent-ice-light: #e6eef8;
+  --border-soft: #eae6f0;
+  --shadow-soft: 0 10px 32px rgba(143, 155, 190, 0.12), 0 2px 8px rgba(212, 135, 156, 0.06);
+}
+
+/* Base & Background */
+body {
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-snow);
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(230, 238, 248, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(253, 238, 244, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(245, 236, 215, 0.45) 0%, transparent 50%),
+    linear-gradient(180deg, #f8faff 0%, #fdfafc 50%, #f6f8fd 100%);
+  background-attachment: fixed;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.outer {
+  width: 100%;
+}
+
+.inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Header */
+#header_wrap {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fe 45%, #fdf5f8 100%);
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 4px 20px rgba(160, 175, 205, 0.08);
+  padding: 44px 0 36px;
+  text-align: center;
+  position: relative;
+}
+
+#header_wrap .inner {
+  padding: 0 24px;
+}
+
+.header-emblem {
+  font-size: 15px;
+  letter-spacing: 0.5em;
+  color: var(--accent-moon);
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+#project_title {
+  font-family: "Cormorant Garamond", "Zen Maru Gothic", serif;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #3b3542;
+  text-shadow: 0 2px 10px rgba(212, 135, 156, 0.15);
+  margin: 0 0 8px 0;
+}
+
+#project_title a {
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+#project_title a:hover {
+  color: var(--accent-rose);
+}
+
+#project_tagline {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-shadow: none;
+  background: none;
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+
+/* Main Content Area (Card Style) */
+#main_content_wrap {
+  background: transparent;
+  border: none;
+  padding: 40px 16px 56px;
+  box-sizing: border-box;
+}
+
+#main_content {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid #ffffff;
+  outline: 1px solid var(--border-soft);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+  padding: 48px 52px;
+  box-sizing: border-box;
+}
+
+/* Typography & Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  color: #3b3542;
+  font-weight: 700;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.45;
+  background: none;
+}
+
+#main_content > h1:first-child,
+#main_content > h2:first-child,
+#main_content > p:first-child {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 26px;
+  text-align: center;
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+}
+
+h1::after {
+  content: "🌙";
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 14px;
+  color: var(--accent-moon);
+}
+
+h2 {
+  font-size: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, var(--accent-rose-light) 0%, rgba(243, 245, 251, 0.5) 70%, transparent 100%);
+  border-left: 4px solid var(--accent-rose);
+  border-bottom: none;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h2::before {
+  content: "❄️";
+  font-size: 15px;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 17px;
+  color: #544b5e;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed #dfd8e8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+h3::before {
+  content: "☾";
+  color: var(--accent-moon);
+  font-size: 16px;
+}
+
+p {
+  margin: 0 0 1.2em 0;
+  color: var(--text-main);
+}
+
+/* Links */
+a {
+  color: #b86b82;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212, 135, 156, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover, a:focus {
+  color: #964c62;
+  text-decoration: none;
+  border-bottom-color: var(--accent-rose);
+  background-color: rgba(246, 227, 233, 0.35);
+  border-radius: 4px;
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.4em;
+  padding-left: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1.2em;
+}
+
+ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.45em;
+  background: none;
+}
+
+ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: var(--accent-moon);
+  font-size: 0.85em;
+}
+
+ul ul {
+  margin-top: 0.35em;
+  margin-bottom: 0.5em;
+}
+
+ul ul li::before {
+  content: "・";
+  color: var(--accent-rose);
+}
+
+ol li {
+  margin-bottom: 0.45em;
+  padding-left: 0.2em;
+}
+
+ol li::marker {
+  color: var(--accent-rose);
+  font-weight: 700;
+}
+
+/* Strong & Emphasis */
+strong {
+  color: #352f3b;
+  background: linear-gradient(transparent 65%, var(--accent-moon-light) 65%);
+  padding: 0 2px;
+}
+
+em {
+  color: #6c5b7b;
+  font-style: normal;
+  border-bottom: 1px dotted var(--accent-moon);
+}
+
+/* Horizontal Rule */
+hr {
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent, #dcd4e6, transparent);
+  margin: 40px 0;
+  position: relative;
+  overflow: visible;
+}
+
+hr::after {
+  content: "❄️ 🌙 ❄️";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent-moon);
+}
+
+/* Code & Pre */
+code, pre {
+  font-family: "Consolas", "Monaco", monospace;
+  background-color: var(--bg-frost);
+  color: #5c4d6d;
+  border-radius: 6px;
+}
+
+code {
+  padding: 2px 6px;
+  font-size: 0.9em;
+  border: 1px solid #e3e7f3;
+  box-shadow: none;
+}
+
+pre {
+  padding: 16px 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* Tables (e.g. Tarot Card Battle) */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 24px 0;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(143, 155, 190, 0.06);
+}
+
+th {
+  background: linear-gradient(135deg, var(--accent-rose-light) 0%, var(--accent-ice-light) 100%);
+  color: #4a3f55;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-soft);
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  text-align: left;
+}
+
+th:last-child {
+  border-right: none;
+}
+
+td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #f1eef6;
+  border-right: 1px solid #f5f2f9;
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+td:last-child {
+  border-right: none;
+}
+
+tr:nth-child(even) td {
+  background-color: #faf9fd;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Blockquote */
+blockquote {
+  color: var(--text-muted);
+  background: var(--bg-blush);
+  border-left: 4px solid var(--accent-moon);
+  margin: 20px 0;
+  padding: 14px 20px;
+  border-radius: 0 12px 12px 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+#footer_wrap {
+  background: transparent;
+  border-top: 1px solid var(--border-soft);
+  padding: 28px 0 40px;
+  text-align: center;
+}
+
+.footer-motif {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--accent-moon);
+  margin-bottom: 8px;
+}
+
+#footer_wrap p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+#footer_wrap a {
+  color: var(--text-muted);
+  border-bottom: none;
+}
+
+#footer_wrap a:hover {
+  color: var(--accent-rose);
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 640px) {
+  #header_wrap {
+    padding: 32px 0 24px;
+  }
+
+  #project_title {
+    font-size: 30px;
+  }
+
+  #main_content_wrap {
+    padding: 24px 12px 40px;
+  }
+
+  #main_content {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  th, td {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+}
