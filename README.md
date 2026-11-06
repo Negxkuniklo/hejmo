@@ -1,5 +1,7 @@
 ## 更新情報
 
+- 20261107: [Teumo](Teumo.html)を公開しました。
+- 20261106: 全体のデザインを変更しました。
 - 20261106: Kernelに[日記を書くこと](Kernel/22_日記を書くこと.html)、[名探偵のジレンマ](Kernel/23_名探偵のジレンマ.html)を公開しました。
 - 20261105: [Marupo](https://github.com/Negxkuniklo/Marupo)を公開しました。
 - 20260814: [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html)を公開しました。
