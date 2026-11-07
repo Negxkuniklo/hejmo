@@ -51,7 +51,7 @@ OSSやLinux、それから万年筆なんかが好きです。
 - [タロットカードバトル](タロットカードバトル.html): タロットカードを使ったTCG。
 - [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question.html): 推理ゲーム
 - [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ。
-- [Terumo](Terumo.html): 日常に、飾らないお茶時間を。
+- [Terumo](Teumo.html): 日常に、飾らないお茶時間を。
 
 ### SNS
 
