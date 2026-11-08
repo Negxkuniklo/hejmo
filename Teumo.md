@@ -11,3 +11,7 @@ Teumo（テウーモ）は、格式高い『お茶』を、もっと気軽に楽
 
 Teumo estas nova tekulturo por ĝui "la noblan teon" pli senĝene.  
 Bonvolu certe foti vian kutiman te-tempon kaj afiŝi ĝin kun #Teumo !
+
+---
+
+2026/8/19
