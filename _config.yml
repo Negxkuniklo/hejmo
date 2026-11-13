@@ -12,3 +12,6 @@ defaults:
 
 twitter:
   card: summary_large_image
+
+kramdown:
+  hard_wrap: true
