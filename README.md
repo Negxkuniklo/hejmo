@@ -1,5 +1,6 @@
 ---
 title: Nonna Neĝkuniklo
+permalink: /
 ---
 
 ## 更新情報
