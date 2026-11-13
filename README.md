@@ -1,7 +1,4 @@
----
-title: Nonna Neĝkuniklo
-permalink: /
----
+# ❄️Hejmpaĵo de Nonna Neĝkuniklo❄️
 
 ## 更新情報
 
