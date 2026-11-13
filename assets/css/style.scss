@@ -200,6 +200,10 @@ body {
   color: var(--accent-moon);
 }
 
+#hejmo + p {
+  text-align: center;
+}
+
 #main_content h2 {
   font-size: 20px;
   padding: 10px 16px;
@@ -403,7 +407,6 @@ strong {
 em {
   color: var(--shisou-deeper);
   font-style: italic;
-  border-bottom: 1px dotted var(--shisou);
 }
 
 /* Horizontal Rule */
