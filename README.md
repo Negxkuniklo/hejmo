@@ -1,4 +1,6 @@
-# ❄️Hejmpaĵo de Nonna Neĝkuniklo❄️
+# Hejmo
+
+*Bonvenon, ĉiuj!* 
 
 ## 更新情報
 
