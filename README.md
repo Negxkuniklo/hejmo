@@ -76,3 +76,7 @@ OSSやLinux、それから万年筆なんかが好きです。
 - [Amazonほしいものリスト](https://www.amazon.jp/hz/wishlist/ls/2AJV2IINY5530?ref_=wl_share)
 - [BOOTHほしいものリスト](https://booth.pm/wish_list_names/pZvTnPoV)
 - [BOOTH購入済みリスト](https://booth.pm/wish_list_names/8yWTlzRX)
+
+### メッセージフォーム
+
+[こちら](https://docs.google.com/forms/d/e/1FAIpQLSepj_vIYMlUGbuOehyvaEWWj0og-agfnVR4fedNz4C7ROLXLQ/viewform?usp=publish-editor)からメッセージをお送りください！
