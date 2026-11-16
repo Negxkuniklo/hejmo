@@ -1,0 +1,197 @@
+---
+layout: default
+title: ログボボタン
+---
+
+<h1>🌙 ログボボタン</h1>
+
+<p>
+  今日も地球にいることを記録して、月へ帰るタイマーをリセットします。<br>
+  （GitHub / Misskey.io / 専用 Discord での反応があった日も、同じ連続記録に自動で合算されます）
+</p>
+
+<div class="logbo-card">
+  <p class="logbo-streak-label">連続ログイン記録（JST基準）</p>
+  <p class="logbo-streak-value">
+    <span id="logbo-streak">--</span><span class="logbo-streak-unit">日</span>
+  </p>
+  <p id="logbo-meta" class="logbo-meta">状態を読み込み中…</p>
+
+  <button id="logbo-btn" class="logbo-button" type="button">
+    🌙 今日も地球にいる（ログボ押下）
+  </button>
+
+  <p id="logbo-feedback" class="logbo-feedback" role="status" aria-live="polite"></p>
+</div>
+
+<details id="logbo-settings" class="logbo-settings">
+  <summary>⚙️ 接続設定（初回・別端末用）</summary>
+  <div class="logbo-field">
+    <label for="logbo-gas-url">GAS ウェブアプリ URL（<code>/exec</code>）</label>
+    <input id="logbo-gas-url" type="url" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off">
+  </div>
+  <div class="logbo-field">
+    <label for="logbo-passphrase">合言葉</label>
+    <input id="logbo-passphrase" type="password" placeholder="設定した合言葉を入力" autocomplete="current-password">
+  </div>
+  <div class="logbo-settings-actions">
+    <button id="logbo-save-btn" class="logbo-sub-btn" type="button">このブラウザに保存</button>
+    <button id="logbo-clear-btn" class="logbo-sub-btn" type="button">保存情報を消去</button>
+  </div>
+</details>
+
+<script>
+  (function () {
+    // GAS デプロイ後に発行された /exec URL をここへ書いておくと、別端末でも URL 入力不要になります
+    var DEFAULT_GAS_URL = "";
+
+    var KEY_URL = "luna_reveno_gas_url";
+    var KEY_PASS = "luna_reveno_passphrase";
+
+    var streakEl = document.getElementById("logbo-streak");
+    var metaEl = document.getElementById("logbo-meta");
+    var btnEl = document.getElementById("logbo-btn");
+    var feedbackEl = document.getElementById("logbo-feedback");
+    var settingsEl = document.getElementById("logbo-settings");
+    var urlInput = document.getElementById("logbo-gas-url");
+    var passInput = document.getElementById("logbo-passphrase");
+    var saveBtn = document.getElementById("logbo-save-btn");
+    var clearBtn = document.getElementById("logbo-clear-btn");
+
+    var params = new URLSearchParams(window.location.search);
+    var queryApi = params.get("api");
+    if (queryApi && /^https:\/\/script\.google\.com\//.test(queryApi)) {
+      localStorage.setItem(KEY_URL, queryApi);
+    }
+
+    function getGasUrl() {
+      return (urlInput.value || localStorage.getItem(KEY_URL) || DEFAULT_GAS_URL || "").trim();
+    }
+
+    function getPassphrase() {
+      return (passInput.value || localStorage.getItem(KEY_PASS) || "").trim();
+    }
+
+    function setFeedback(message, kind) {
+      feedbackEl.textContent = message || "";
+      if (kind) {
+        feedbackEl.setAttribute("data-kind", kind);
+      } else {
+        feedbackEl.removeAttribute("data-kind");
+      }
+    }
+
+    function renderStatus(data) {
+      if (!data) return;
+      streakEl.textContent = typeof data.streakDays === "number" ? String(data.streakDays) : "--";
+      if (data.departed) {
+        metaEl.textContent = "状態: 月へ帰還済み（" + (data.departedAt ? String(data.departedAt).slice(0, 10) : "-") + "）";
+        btnEl.disabled = true;
+        btnEl.textContent = "🌙 お月さまへ出発済み";
+      } else {
+        var lastDate = data.lastActiveDateJst ? "最終記録日: " + data.lastActiveDateJst : "待機中";
+        metaEl.textContent = lastDate;
+        btnEl.disabled = false;
+        btnEl.textContent = "🌙 今日も地球にいる（ログボ押下）";
+      }
+    }
+
+    function loadInitialStatus() {
+      var staticUrl = "{{ '/assets/data/moon-status.json' | relative_url }}?t=" + Date.now();
+      var gasUrl = getGasUrl();
+
+      fetch(staticUrl, { cache: "no-store" })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) { if (data) renderStatus(data); })
+        .catch(function () {});
+
+      if (gasUrl) {
+        fetch(gasUrl + (gasUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (data) { if (data && data.ok) renderStatus(data); })
+          .catch(function () {});
+      }
+    }
+
+    urlInput.value = localStorage.getItem(KEY_URL) || DEFAULT_GAS_URL || "";
+    passInput.value = localStorage.getItem(KEY_PASS) || "";
+    if (!getGasUrl() || !getPassphrase()) {
+      settingsEl.open = true;
+    }
+
+    saveBtn.addEventListener("click", function () {
+      var u = urlInput.value.trim();
+      var p = passInput.value.trim();
+      if (u) localStorage.setItem(KEY_URL, u);
+      if (p) localStorage.setItem(KEY_PASS, p);
+      setFeedback("接続設定をこのブラウザに保存しました。", "ok");
+      if (u && p) settingsEl.open = false;
+      loadInitialStatus();
+    });
+
+    clearBtn.addEventListener("click", function () {
+      localStorage.removeItem(KEY_URL);
+      localStorage.removeItem(KEY_PASS);
+      urlInput.value = DEFAULT_GAS_URL || "";
+      passInput.value = "";
+      setFeedback("保存情報を消去しました。", "ok");
+    });
+
+    btnEl.addEventListener("click", function () {
+      var gasUrl = getGasUrl();
+      var passphrase = getPassphrase();
+
+      if (!gasUrl || !passphrase) {
+        settingsEl.open = true;
+        setFeedback("下の「接続設定」から GAS URL と合言葉を入力してください。", "error");
+        return;
+      }
+
+      localStorage.setItem(KEY_URL, gasUrl);
+      localStorage.setItem(KEY_PASS, passphrase);
+
+      btnEl.disabled = true;
+      btnEl.textContent = "⏳ 記録中…";
+      setFeedback("");
+
+      fetch(gasUrl, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ passphrase: passphrase })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (res) {
+          if (!res || !res.ok) {
+            if (res && res.error === "INVALID_PASSPHRASE") {
+              settingsEl.open = true;
+              setFeedback("合言葉が一致しませんでした。接続設定を確認してください。", "error");
+            } else if (res && res.error === "ALREADY_DEPARTED") {
+              renderStatus(res);
+              setFeedback("現在お月さまへ出発済みです（復旧は state.json を手動リセットしてください）。", "error");
+            } else {
+              setFeedback("記録に失敗しました: " + (res && res.error ? res.error : "不明なエラー"), "error");
+            }
+            return;
+          }
+
+          renderStatus(res);
+          if (res.alreadyCheckedInToday) {
+            setFeedback("✨ 本日分はすでに記録済みです（最終時刻を更新しました）。連続 " + res.streakDays + " 日！", "ok");
+          } else {
+            setFeedback("🌕 生存記録を更新しました！連続 " + res.streakDays + " 日目！", "ok");
+          }
+        })
+        .catch(function (err) {
+          setFeedback("通信エラーが発生しました: " + (err && err.message ? err.message : err), "error");
+        })
+        .finally(function () {
+          if (btnEl.textContent === "⏳ 記録中…") {
+            btnEl.disabled = false;
+            btnEl.textContent = "🌙 今日も地球にいる（ログボ押下）";
+          }
+        });
+    });
+
+    loadInitialStatus();
+  })();
+</script>

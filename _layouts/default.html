@@ -31,6 +31,32 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+        {% if page.url == "/" or page.url == "/index.html" %}
+        <div id="moon-memorial-banner" class="moon-memorial-banner" role="status" aria-live="polite" hidden>
+          <div class="moon-memorial-icon" aria-hidden="true">🌙🐇❄️</div>
+          <p class="moon-memorial-text">のんなうさぎは月へと帰りましたとさ。めでたしめでたし</p>
+          <p id="moon-memorial-date" class="moon-memorial-date" hidden></p>
+        </div>
+        <script>
+          (function () {
+            var banner = document.getElementById("moon-memorial-banner");
+            var dateEl = document.getElementById("moon-memorial-date");
+            if (!banner) return;
+            var statusUrl = "{{ '/assets/data/moon-status.json' | relative_url }}?t=" + Date.now();
+            fetch(statusUrl, { cache: "no-store" })
+              .then(function (res) { return res.ok ? res.json() : null; })
+              .then(function (data) {
+                if (!data || data.departed !== true) return;
+                banner.hidden = false;
+                if (data.departedAt && dateEl) {
+                  dateEl.textContent = "帰還記録（JST）: " + String(data.departedAt).slice(0, 10);
+                  dateEl.hidden = false;
+                }
+              })
+              .catch(function () {});
+          })();
+        </script>
+        {% endif %}
         {{ content }}
       </section>
     </div>
