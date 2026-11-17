@@ -1,8 +1,8 @@
 theme: jekyll-theme-slate
 title: "Nonna Neĝkuniklo"
 description: "❄️Hejmpaĵo de Nonna Neĝkuniklo❄️"
-url: "https://negxkuniklo.github.io"
-baseurl: "/hejmo"
+url: "https://negxkuniklo.net"
+baseurl: ""
 
 defaults:
   - scope:
