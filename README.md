@@ -4,6 +4,7 @@
 
 ## 更新情報
 
+- 20261117: HejmoのURLが変わりました。<https://Negxkuniklo.github.io/hejmo> → <https://negxkuniklo.net>
 - 20261107: [Teumo](Teumo.html)を公開しました。
 - 20261106: 全体のデザインを変更しました。
 - 20261106: Kernelに[日記を書くこと](Kernel/日記を書くこと.html)、[名探偵のジレンマ](Kernel/名探偵のジレンマ.html)を公開しました。
