@@ -4,6 +4,7 @@
 
 ## 更新情報
 
+- 20261121: [ひと年齢↔うさぎ年齢](hito-usagi.html)を公開しました。
 - 20261117: HejmoのURLが変わりました。<https://Negxkuniklo.github.io/hejmo> → <https://negxkuniklo.net>
 - 20261107: [Teumo](Teumo.html)を公開しました。
 - 20261106: 全体のデザインを変更しました。
@@ -57,6 +58,7 @@ OSSやLinux、それから万年筆なんかが好きです。
 - [探偵昇格試験「消えた懐中時計の謎」](./探偵昇格試験「消えた懐中時計の謎」/question.html): 推理ゲーム
 - [EsperantoXKonvertilo](EsperantoXKonvertilo/index.html): X方式で入力したエスペラントを、特殊文字に出力するWebアプリ。
 - [Teumo](Teumo.html): 日常に、飾らないお茶時間を。
+- [ひと年齢↔うさぎ年齢](hito-usagi.html): 人間の年齢とうさぎの年齢を換算。
 
 ### SNS
 

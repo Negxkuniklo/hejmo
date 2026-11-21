@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ひと年齢 ↔ うさぎ年齢 換算ツール</title>
+  <style>
+    :root {
+      --primary: #9389b3;
+      --primary-dark: #746996;
+      --primary-light: #f3f1f8;
+      --bg: #faf9fc;
+      --card-bg: #ffffff;
+      --text: #2e2a3b;
+      --text-muted: #6e6880;
+      --border: #dcd7e8;
+      --shadow: 0 8px 24px rgba(74, 65, 102, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 6px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .converter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 28px 20px;
+      margin-bottom: 20px;
+    }
+
+    .converter-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .converter-table th {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      padding-bottom: 14px;
+      text-align: center;
+    }
+
+    .converter-table td {
+      vertical-align: middle;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .col-human {
+      width: 38%;
+    }
+
+    .col-arrow {
+      width: 12%;
+    }
+
+    .col-rabbit {
+      width: 50%;
+    }
+
+    .input-group {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      background: var(--primary-light);
+      padding: 14px 12px;
+      border-radius: 12px;
+      width: 100%;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .input-group:focus-within {
+      border-color: var(--primary);
+      background: #ffffff;
+    }
+
+    input[type="number"] {
+      width: 76px;
+      padding: 8px 6px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-align: right;
+      color: var(--text);
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-variant-numeric: tabular-nums;
+    }
+
+    input[type="number"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(147, 137, 179, 0.2);
+    }
+
+    .rabbit-input {
+      width: 64px !important;
+    }
+
+    .unit {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .arrow-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 1.25rem;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    .status-bar {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .stage-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .clear-btn:hover {
+      background: #ffffff;
+      color: var(--text);
+      border-color: var(--primary);
+    }
+
+    .reference-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      font-size: 0.875rem;
+    }
+
+    .reference-section h2 {
+      font-size: 1rem;
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+    }
+
+    .reference-section p {
+      margin: 0 0 14px;
+      color: var(--text-muted);
+    }
+
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .ref-table th,
+    .ref-table td {
+      border: 1px solid var(--border);
+      padding: 7px 6px;
+    }
+
+    .ref-table th {
+      background: var(--primary-light);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @media (max-width: 560px) {
+      .converter-table,
+      .converter-table thead,
+      .converter-table tbody,
+      .converter-table tr,
+      .converter-table th,
+      .converter-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .converter-table thead {
+        display: none;
+      }
+
+      .col-human::before {
+        content: "ひと年齢";
+        display: block;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 6px;
+      }
+
+      .col-rabbit::before {
+        content: "うさぎ年齢";
+        display: block;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 6px;
+      }
+
+      .col-arrow {
+        padding: 8px 0;
+      }
+
+      .arrow-badge {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ひと年齢 ↔ うさぎ年齢</h1>
+      <p class="subtitle">どちらかに数字を入力すると、もう片方がリアルタイムで自動換算されます</p>
+    </header>
+
+    <main class="converter-card">
+      <table class="converter-table" aria-label="年齢双方向換算フォーム">
+        <thead>
+          <tr>
+            <th class="col-human">ひと年齢</th>
+            <th class="col-arrow"></th>
+            <th class="col-rabbit">うさぎ年齢</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-human">
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="human-age"
+                  min="0"
+                  max="150"
+                  step="0.5"
+                  placeholder="28"
+                  aria-label="ひと年齢（歳）"
+                >
+                <span class="unit">歳</span>
+              </div>
+            </td>
+            <td class="col-arrow">
+              <span class="arrow-badge" aria-hidden="true">↔</span>
+            </td>
+            <td class="col-rabbit">
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="rabbit-years"
+                  class="rabbit-input"
+                  min="0"
+                  max="25"
+                  step="1"
+                  placeholder="2"
+                  aria-label="うさぎ年齢（歳）"
+                >
+                <span class="unit">歳</span>
+                <input
+                  type="number"
+                  id="rabbit-months"
+                  class="rabbit-input"
+                  min="0"
+                  max="11"
+                  step="1"
+                  placeholder="0"
+                  aria-label="うさぎ年齢（ヶ月）"
+                >
+                <span class="unit">ヶ月</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="status-bar">
+        <div id="stage-info">
+          <span class="stage-badge">目安</span>
+          <span id="stage-text">年齢を入力してください（例：ひと28歳 ↔ うさぎ 2歳0ヶ月）</span>
+        </div>
+        <button type="button" class="clear-btn" id="clear-btn">クリア</button>
+      </div>
+    </main>
+
+    <section class="reference-section">
+      <h2>換算モデルについて</h2>
+      <p>
+        うさぎは生後半年で性成熟を迎え、1歳で成人（ひとで20歳前後）に達するため、幼少期は1ヶ月ごとにひとの約2〜2.5歳分ものスピードで成長します。2歳以降は1年あたりひと年齢で約6歳ずつ穏やかに年齢を重ねる非線形モデルで計算しています。
+      </p>
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>うさぎ年齢</th>
+            <th>1ヶ月</th>
+            <th>2ヶ月</th>
+            <th>3ヶ月</th>
+            <th>6ヶ月</th>
+            <th>1歳</th>
+            <th>2歳</th>
+            <th>3歳</th>
+            <th>5歳</th>
+            <th>8歳</th>
+            <th>10歳</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>ひと年齢</th>
+            <td>2歳</td>
+            <td>5歳</td>
+            <td>7歳</td>
+            <td>13歳</td>
+            <td>20歳</td>
+            <td>28歳</td>
+            <td>34歳</td>
+            <td>46歳</td>
+            <td>64歳</td>
+            <td>76歳</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      // [うさぎの総月数, ひと年齢] の基準コントロールポイント
+      // 36ヶ月（3歳）以降は12ヶ月ごとに+6歳（1ヶ月あたり+0.5歳）で推移
+      const CONTROL_POINTS = [
+        [0, 0],
+        [1, 2],
+        [2, 5],
+        [3, 7],
+        [6, 13],
+        [12, 20],
+        [24, 28],
+        [36, 34]
+      ];
+
+      const humanInput = document.getElementById("human-age");
+      const rabbitYearsInput = document.getElementById("rabbit-years");
+      const rabbitMonthsInput = document.getElementById("rabbit-months");
+      const stageInfo = document.getElementById("stage-info");
+      const clearBtn = document.getElementById("clear-btn");
+
+      // ひと年齢 → うさぎ総月数
+      function humanToRabbitMonths(humanAge) {
+        if (humanAge <= 0) return 0;
+
+        for (let i = 0; i < CONTROL_POINTS.length - 1; i++) {
+          const [m1, h1] = CONTROL_POINTS[i];
+          const [m2, h2] = CONTROL_POINTS[i + 1];
+          if (humanAge <= h2) {
+            const ratio = (humanAge - h1) / (h2 - h1);
+            return m1 + ratio * (m2 - m1);
+          }
+        }
+
+        // 34歳（うさぎ3歳＝36ヶ月）以降はひと6歳につきうさぎ12ヶ月
+        const [lastM, lastH] = CONTROL_POINTS[CONTROL_POINTS.length - 1];
+        return lastM + ((humanAge - lastH) / 6) * 12;
+      }
+
+      // うさぎ総月数 → ひと年齢
+      function rabbitMonthsToHuman(totalMonths) {
+        if (totalMonths <= 0) return 0;
+
+        for (let i = 0; i < CONTROL_POINTS.length - 1; i++) {
+          const [m1, h1] = CONTROL_POINTS[i];
+          const [m2, h2] = CONTROL_POINTS[i + 1];
+          if (totalMonths <= m2) {
+            const ratio = (totalMonths - m1) / (m2 - m1);
+            return h1 + ratio * (h2 - h1);
+          }
+        }
+
+        // 36ヶ月以降は12ヶ月につき+6歳
+        const [lastM, lastH] = CONTROL_POINTS[CONTROL_POINTS.length - 1];
+        return lastH + ((totalMonths - lastM) / 12) * 6;
+      }
+
+      function getLifeStage(totalMonths) {
+        if (totalMonths < 6) {
+          return { label: "幼少期・成長期", desc: "体がぐんぐん大きくなる時期です。" };
+        }
+        if (totalMonths < 12) {
+          return { label: "青年期", desc: "思春期を迎え、大人への体つきに変わる時期です。" };
+        }
+        if (totalMonths < 36) {
+          return { label: "若年期・維持期", desc: "体力があり、最も活発で安定した時期です。" };
+        }
+        if (totalMonths < 72) {
+          return { label: "中年期", desc: "落ち着いた大人の時期。健康管理や体重維持が大切です。" };
+        }
+        return { label: "シニア期・高齢期", desc: "ゆっくり穏やかに過ごす時期。定期健診や段差ケアが安心です。" };
+      }
+
+      function updateStageDisplay(totalMonths) {
+        if (totalMonths === null || Number.isNaN(totalMonths)) {
+          stageInfo.innerHTML =
+            '<span class="stage-badge">目安</span><span>年齢を入力してください（例：ひと 28歳 ↔ うさぎ 2歳0ヶ月）</span>';
+          return;
+        }
+        const stage = getLifeStage(totalMonths);
+        stageInfo.innerHTML =
+          `<span class="stage-badge">${stage.label}</span><span>${stage.desc}</span>`;
+      }
+
+      // ひと年齢が入力されたときの処理
+      humanInput.addEventListener("input", () => {
+        const raw = humanInput.value.trim();
+        if (raw === "") {
+          rabbitYearsInput.value = "";
+          rabbitMonthsInput.value = "";
+          updateStageDisplay(null);
+          return;
+        }
+
+        const humanAge = parseFloat(raw);
+        if (Number.isNaN(humanAge) || humanAge < 0) return;
+
+        const exactMonths = humanToRabbitMonths(humanAge);
+        const roundedMonths = Math.round(exactMonths);
+        const years = Math.floor(roundedMonths / 12);
+        const months = roundedMonths % 12;
+
+        rabbitYearsInput.value = years;
+        rabbitMonthsInput.value = months;
+        updateStageDisplay(roundedMonths);
+      });
+
+      // うさぎ年齢（歳・ヶ月）が入力されたときの処理
+      function handleRabbitInput() {
+        const rawY = rabbitYearsInput.value.trim();
+        const rawM = rabbitMonthsInput.value.trim();
+
+        if (rawY === "" && rawM === "") {
+          humanInput.value = "";
+          updateStageDisplay(null);
+          return;
+        }
+
+        const years = rawY === "" ? 0 : parseFloat(rawY);
+        const months = rawM === "" ? 0 : parseFloat(rawM);
+        if (Number.isNaN(years) || Number.isNaN(months) || years < 0 || months < 0) return;
+
+        const totalMonths = years * 12 + months;
+        const humanAge = rabbitMonthsToHuman(totalMonths);
+
+        // 小数点第1位まで整形（.0 の場合は整数表示）
+        humanInput.value = Number(humanAge.toFixed(1));
+        updateStageDisplay(totalMonths);
+      }
+
+      rabbitYearsInput.addEventListener("input", handleRabbitInput);
+      rabbitMonthsInput.addEventListener("input", handleRabbitInput);
+
+      // クリアボタン
+      clearBtn.addEventListener("click", () => {
+        humanInput.value = "";
+        rabbitYearsInput.value = "";
+        rabbitMonthsInput.value = "";
+        updateStageDisplay(null);
+        humanInput.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
