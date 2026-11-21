@@ -168,7 +168,7 @@
       background: var(--primary-light);
       border-radius: 10px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
@@ -308,7 +308,6 @@
                   min="0"
                   max="150"
                   step="0.5"
-                  placeholder="28"
                   aria-label="ひと年齢（歳）"
                 >
                 <span class="unit">歳</span>
@@ -326,7 +325,6 @@
                   min="0"
                   max="25"
                   step="1"
-                  placeholder="2"
                   aria-label="うさぎ年齢（歳）"
                 >
                 <span class="unit">歳</span>
@@ -337,7 +335,6 @@
                   min="0"
                   max="11"
                   step="1"
-                  placeholder="0"
                   aria-label="うさぎ年齢（ヶ月）"
                 >
                 <span class="unit">ヶ月</span>
@@ -348,10 +345,6 @@
       </table>
 
       <div class="status-bar">
-        <div id="stage-info">
-          <span class="stage-badge">目安</span>
-          <span id="stage-text">年齢を入力してください（例：ひと28歳 ↔ うさぎ 2歳0ヶ月）</span>
-        </div>
         <button type="button" class="clear-btn" id="clear-btn">クリア</button>
       </div>
     </main>
@@ -414,7 +407,6 @@
       const humanInput = document.getElementById("human-age");
       const rabbitYearsInput = document.getElementById("rabbit-years");
       const rabbitMonthsInput = document.getElementById("rabbit-months");
-      const stageInfo = document.getElementById("stage-info");
       const clearBtn = document.getElementById("clear-btn");
 
       // ひと年齢 → うさぎ総月数
@@ -453,40 +445,12 @@
         return lastH + ((totalMonths - lastM) / 12) * 6;
       }
 
-      function getLifeStage(totalMonths) {
-        if (totalMonths < 6) {
-          return { label: "幼少期・成長期", desc: "体がぐんぐん大きくなる時期です。" };
-        }
-        if (totalMonths < 12) {
-          return { label: "青年期", desc: "思春期を迎え、大人への体つきに変わる時期です。" };
-        }
-        if (totalMonths < 36) {
-          return { label: "若年期・維持期", desc: "体力があり、最も活発で安定した時期です。" };
-        }
-        if (totalMonths < 72) {
-          return { label: "中年期", desc: "落ち着いた大人の時期。健康管理や体重維持が大切です。" };
-        }
-        return { label: "シニア期・高齢期", desc: "ゆっくり穏やかに過ごす時期。定期健診や段差ケアが安心です。" };
-      }
-
-      function updateStageDisplay(totalMonths) {
-        if (totalMonths === null || Number.isNaN(totalMonths)) {
-          stageInfo.innerHTML =
-            '<span class="stage-badge">目安</span><span>年齢を入力してください（例：ひと 28歳 ↔ うさぎ 2歳0ヶ月）</span>';
-          return;
-        }
-        const stage = getLifeStage(totalMonths);
-        stageInfo.innerHTML =
-          `<span class="stage-badge">${stage.label}</span><span>${stage.desc}</span>`;
-      }
-
       // ひと年齢が入力されたときの処理
       humanInput.addEventListener("input", () => {
         const raw = humanInput.value.trim();
         if (raw === "") {
           rabbitYearsInput.value = "";
           rabbitMonthsInput.value = "";
-          updateStageDisplay(null);
           return;
         }
 
@@ -500,7 +464,6 @@
 
         rabbitYearsInput.value = years;
         rabbitMonthsInput.value = months;
-        updateStageDisplay(roundedMonths);
       });
 
       // うさぎ年齢（歳・ヶ月）が入力されたときの処理
@@ -510,7 +473,6 @@
 
         if (rawY === "" && rawM === "") {
           humanInput.value = "";
-          updateStageDisplay(null);
           return;
         }
 
@@ -523,7 +485,6 @@
 
         // 小数点第1位まで整形（.0 の場合は整数表示）
         humanInput.value = Number(humanAge.toFixed(1));
-        updateStageDisplay(totalMonths);
       }
 
       rabbitYearsInput.addEventListener("input", handleRabbitInput);
@@ -534,7 +495,6 @@
         humanInput.value = "";
         rabbitYearsInput.value = "";
         rabbitMonthsInput.value = "";
-        updateStageDisplay(null);
         humanInput.focus();
       });
     })();
